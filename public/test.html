@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <title>Eat-da-burger!</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/assets/js/burger.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/burger_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Song+Myung" rel="stylesheet">
+</head>
+
+<body>
+    <div class="jumbotron">
+        <img src="assets/img/burger.png" alt="burger">
+        <h2>Eat-da-Burger!</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                      
+                <div id="burgerlistBox">
+                    <h3>Ready to Eat Burgers</h3>
+                    <ol>
+                        
+                            <li>                                    
+                                Chicken Burger
+                                <button class="btn btn-success">Devour it!</button>                            
+                            </li>
+                        
+                        
+                            <li>
+                                Teriyaki Burger
+                                <button class="btn btn-success">Devour it!</button>
+
+                            </li>
+                        
+                    </ol>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <h3>Devoured Burgers</h3>
+                <div id="devouringlistBox">
+                    <ol class="center">
+
+                        <li>Cheese Burger
+                            <button class="btn btn-danger">Delete</button>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <form class="create-form">
+
+                    <div class="form-group">
+                        <label for="addBurger">Enter your favorite burger:</label>
+                        <input type="text" id="burgerName" name="name">
+                    </div>
+
+                    <button class="btn btn-success" type="submit">Add Burger</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
