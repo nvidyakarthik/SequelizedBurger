@@ -23,6 +23,7 @@ li {
     padding: 9px;
     border: 2px solid black;
     box-shadow: 3px 4px #b60000e0;
+    list-style-type: none;
 } 
 img{
     width:95px;
