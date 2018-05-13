@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Nvidya1981!",
-    "database": "database_development",
+    "database": "sequelizeburgers_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
