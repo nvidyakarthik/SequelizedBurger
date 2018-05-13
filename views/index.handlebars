@@ -10,7 +10,7 @@
         <ol>
           {{#each burger}} {{#unless devoured}}
           <li>
-            {{burger_name}}
+            {{id}}.{{burger_name}}
               <button data-id={{id}} class="devourB btn btn-success">Devour it!</button>    
 
           </li>
@@ -23,7 +23,9 @@
       <div id="devouringlistBox">
         <ol class="center">
           {{#each burger}} {{#if devoured}}
-          <li>{{burger_name}}
+          <li>
+            {{id}}.{{burger_name}}
+            {{burger_name}}
           <button data-id={{id}} class="deleteB btn btn-danger">Delete</button>
           </li>
           {{/if}} {{/each}}
