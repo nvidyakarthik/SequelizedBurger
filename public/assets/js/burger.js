@@ -32,11 +32,14 @@ $(function() {
   $(".devourB").on("click", function(event) {
     
       var id = $(this).data("id");
-      console.log("id for updating"+id);
+      var custName=$("#custName"+id).val();
+      alert(custName);
+      console.log("id for updating---------------"+id);
+      console.log("custname"+custName);
       // Send the POST request.
       $.ajax({
         type: "PUT",
-        url: "/api/devourBurger/" + id
+        url: "/api/devourBurger/" + id+"/"+custName
       }).then(
         function() {
           console.log("updated");
