@@ -33,9 +33,7 @@ $(function() {
     
       var id = $(this).data("id");
       var custName=$("#custName"+id).val();
-      alert(custName);
-      console.log("id for updating---------------"+id);
-      console.log("custname"+custName);
+      
       // Send the POST request.
       $.ajax({
         type: "PUT",
