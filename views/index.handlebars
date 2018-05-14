@@ -11,6 +11,7 @@
           {{#each burger}} {{#unless devoured}}
           <li>
             {{id}}.{{burger_name}}
+              <input type="text" id="custName{{id}}" name="customer">
               <button data-id={{id}} class="devourB btn btn-success">Devour it!</button>    
 
           </li>
@@ -25,7 +26,7 @@
           {{#each burger}} {{#if devoured}}
           <li>
             {{id}}.{{burger_name}}
-            {{burger_name}}
+            ({{Customer.customerName}})
           <button data-id={{id}} class="deleteB btn btn-danger">Delete</button>
           </li>
           {{/if}} {{/each}}

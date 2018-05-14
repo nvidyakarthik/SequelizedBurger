@@ -2,34 +2,49 @@
 var db = require("../models");
 module.exports=function(app){
   app.get("/", function(req, res) {
-       db.Burgers.findAll({}).then(function(data) {
+       db.Burgers.findAll({ 
+         include: [{
+           model:db.Customer,
+           where: 
+           { 
+             fk_customerid: db.Sequelize.col('burgers.id') 
+            },
+          attributes: ["customerName"]  
+          }]
+        }).then(function(data) {
         // We have access to the todos as an argument inside of the callback function
         
         var burgerObject = {
           burger: data
         };
-       // console.log(burgerObject);
-        res.render("index", burgerObject);
+       console.log(burgerObject);
+       res.render("index", burgerObject);
       });
     
   });
 
   app.post("/api/burgers", function(req, res) {
+    var burger;
     db.Burgers.create({
       burger_name:req.body.name,
       devoured:false
-    }).then(function(dbBurger){
-      // Send back the ID of the new quote
-      res.json({ id: dbBurger.insertId });
+    }).then(function(createdBurger){
+      burger=createdBurger;
+      return db.Customer.create({
+        customerName: ""
+        
+      })
+    }).then(function(customer){
+      burger.setCustomer(customer);
+      res.json('OK');
     });
    });
   
   
 
-  app.put("/api/devourBurger/:id", function(req, res) {
-    var condition = req.params.id;
-  
-    console.log("condition", condition);
+  app.put("/api/devourBurger/:id/:customer", function(req, res) {
+    var rowId = req.params.id;
+    name=req.params.customer; 
   
     db.Burgers.update(
       {
@@ -37,10 +52,21 @@ module.exports=function(app){
       },
       {
         where:{
-          id:condition
+          id:rowId
         }
+      }).then(function(updatedBurger){
+        db.Customer.update(
+          {
+            customerName:name
+          },
+          {
+            where:{
+              fk_customerid:rowId
+            }
+          }
+        )
       }).then(function(result){
-        if (result.changedRows === 0) {
+        if (result) {
           // If no rows were changed, then the ID must not exist, so 404
           return res.status(404).end();
         }
