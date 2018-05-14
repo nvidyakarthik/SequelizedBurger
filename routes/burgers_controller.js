@@ -7,7 +7,7 @@ module.exports=function(app){
            model:db.Customer,
            where: 
            { 
-             fk_customerid: db.Sequelize.col('burgers.id') 
+             fk_customerid: db.Sequelize.col('Burgers.id') 
             },
           attributes: ["customerName"]  
           }]
